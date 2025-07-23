@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import CodeEditor from './components/CodeEditor.jsx';
 import SuggestionList from './components/SuggestionList.jsx';
 import './pages/Home.css';
-import GeminiSuggestion from './components/GeminiSuggestion.jsx'
+// import GeminiSuggestion from './components/GeminiSuggestion.jsx'
 
 export default function Home() {
   const [code, setCode] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
+  console.log("Backend URL:", backendURL);
   const analyzeCode = async () => {
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/analyze`, {
       method: 'POST',
