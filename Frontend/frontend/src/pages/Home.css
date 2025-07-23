@@ -1,0 +1,15 @@
+.home-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.home-title {
+  text-align: center;
+  color: #111827;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

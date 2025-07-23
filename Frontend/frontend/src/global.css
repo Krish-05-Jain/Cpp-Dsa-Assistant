@@ -1,0 +1,22 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .home-container {
+    padding: 1rem;
+  }
+
+  .code-editor button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "tree-sitter": "^0.21.1",
+    "tree-sitter-cpp": "^0.23.4"
+  },
+  "devDependencies": {}
+}
