@@ -62,7 +62,10 @@ body {
     letter-spacing: -0.05em; /* Slightly tighter letter spacing */
     background: linear-gradient(45deg, #60a5fa, #3b82f6); /* Gradient text effect */
     /* -webkit-background-clip: text; */
-    -webkit-text-fill-color: transparent;
+     /* background: linear-gradient(to right, red, blue);
+      */
+      background-clip: text;
+      -webkit-background-clip: text;
 }
 
 /* Code Editor and Suggestion List Containers (assuming these are direct children or have their own wrappers) */
