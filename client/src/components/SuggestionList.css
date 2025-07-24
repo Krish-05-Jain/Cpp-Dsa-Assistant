@@ -41,7 +41,7 @@
     margin-bottom: 1rem; /* Space below the title */
     text-align: center; /* Center align the title */
     background: linear-gradient(45deg, #60a5fa, #3b82f6); /* Gradient text effect */
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
     letter-spacing: -0.03em; /* Slightly tighter letter spacing */
