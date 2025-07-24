@@ -24,7 +24,7 @@ const {
   isRecursive
 } = require('../logicAnalyzers/functionAnalyzer');
 
-const { findSTLStructures } = require('../logicAnalyzers/stlAnalyzer');
+const { findSTLStructures } = require('../logicAnalyzers/stlanalyzer');
 const { suggestPrefixSumOrHashing } = require('../logicAnalyzers/optimizationHints');
 const {
   collectDeclaredVariables,
