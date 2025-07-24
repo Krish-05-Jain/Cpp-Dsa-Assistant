@@ -1,4 +1,4 @@
-body {
+/* body {
 	font-family: Arial, sans-serif;
 	background: #f4f6f8;
 	margin: 0;
@@ -71,4 +71,88 @@ h1 {
 	background: white;
 	border-radius: 10px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+} */
+ /* General Body Styles */
+body {
+    font-family: Arial, sans-serif; /* Changed font to Arial */
+    background: #f4f6f8; /* Light background color */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Keep flex for centering */
+    justify-content: center;
+    align-items: flex-start; /* Align to start to allow scrolling */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Home Container - mapping to .container from your input */
+.home-container {
+    max-width: 900px; /* Max width as per your .container */
+    margin: 2rem auto; /* Centered with auto margins */
+    padding: 2rem; /* Padding as per your .container */
+    background-color: white; /* White background for the container */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Spacing between elements */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Home Title - mapping to h1 from your input */
+.home-title {
+    text-align: center;
+    color: #34495e; /* Darker text color */
+    margin-bottom: 1rem;
+    font-size: 2.5rem; /* Adjusting font size for better fit */
+}
+
+/* Navbar styles (if you decide to use a navbar in Home.jsx) */
+.navbar {
+    background: #2c3e50; /* Dark blue background */
+    color: white;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Include padding in width */
+    border-radius: 8px; /* Added rounded corners for consistency */
+    margin-bottom: 1rem; /* Space below navbar */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem; /* Added padding for better click area */
+    border-radius: 4px; /* Rounded corners for links */
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+
+    .home-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container {
+        padding: 1rem;
+        margin: 0.5rem auto;
+    }
+
+    .home-title {
+        font-size: 1.8rem;
+    }
 }

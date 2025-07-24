@@ -1,4 +1,4 @@
-.about {
+/* .about {
 	max-width: 900px;
 	margin: auto;
 	padding: 2rem 1.5rem;
@@ -15,4 +15,96 @@
 .about p {
 	font-size: 1rem;
 	line-height: 1.6;
+} */
+
+/* General Body Styles (ensure consistency with Home.css if this is a global style) */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1a202c, #2d3748); /* Dark gradient background */
+    color: #f9fafb; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to start to allow scrolling if content is tall */
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* About Container */
+.about {
+    max-width: 800px; /* Slightly adjusted max-width for balance */
+    margin: 4rem auto 2rem auto; /* More margin at the top to center it better */
+    padding: 3rem; /* Increased padding for more breathing room */
+    background-color: #2d3748; /* Dark background, consistent with home-container */
+    border-radius: 1.5rem; /* More rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Deeper, more prominent shadow */
+    color: #f9fafb; /* Light text color */
+    text-align: center; /* Center align all content within the about section */
+    border: 1px solid rgba(96, 165, 250, 0.2); /* Subtle accent border */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* About Title */
+.about h2 {
+    font-size: 2.8rem; /* Larger font size for the heading */
+    font-weight: 700; /* Bolder */
+    margin-bottom: 1.5rem; /* More space below the title */
+    background: linear-gradient(45deg, #60a5fa, #3b82f6); /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+    letter-spacing: -0.03em; /* Slightly tighter letter spacing */
+}
+
+/* About Paragraph */
+.about p {
+    font-size: 1.2rem; /* Larger font size for readability */
+    line-height: 1.8; /* Increased line height for better readability */
+    color: #cbd5e0; /* Slightly darker light color for body text */
+    max-width: 600px; /* Constrain paragraph width for optimal line length */
+    margin: 0 auto; /* Center the paragraph */
+}
+
+/* Heart icon styling (if you want to use an actual heart emoji or icon) */
+.about p strong { /* Assuming the heart is wrapped in a strong tag for emphasis */
+    color: #ef4444; /* A nice red for the heart */
+    font-size: 1.3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about {
+        padding: 2rem;
+        margin: 2rem auto;
+        border-radius: 1rem;
+    }
+
+    .about h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .about p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        padding: 1.5rem;
+        margin: 1rem auto;
+        border-radius: 0.75rem;
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 }

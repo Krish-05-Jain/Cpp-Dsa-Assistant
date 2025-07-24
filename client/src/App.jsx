@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import CodeEditor from './components/CodeEditor.jsx';
 import SuggestionList from './components/SuggestionList.jsx';
-import './pages/Home.css';
+import './App.css';
+import About from './components/About.jsx'
 // import GeminiSuggestion from './components/GeminiSuggestion.jsx'
 
 export default function Home() {
@@ -21,11 +22,14 @@ export default function Home() {
   };
 
   return (
+    <>
     <div className="home-container">
       <h1 className="home-title">🧠 C++ DSA Optimizer</h1>
       <CodeEditor code={code} setCode={setCode} analyzeCode={analyzeCode} />
       <SuggestionList suggestions={suggestions} />
       {/* <div className='gemini'> <GeminiSuggestion/></div> */}
+      <About />
     </div>
+    </>
   );
 }
