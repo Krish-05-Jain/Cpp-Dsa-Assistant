@@ -19,7 +19,7 @@ function suggestPrefixSumOrHashing(node, code, suggestions = []) {
 
     const binarySearchFindRegex = /for\s*\(\s*int\s+\w+\s*=\s*0\s*;\s*\w+\s*<\s*\w+\s*;\s*\w+\+\+\s*\)[^}]*if\s*\(\s*\w+\s*\[\s*\w+\s*\]\s*==/s;
     if (binarySearchFindRegex.test(loopText)) {
-      suggestions.push({ type: 'binary_search', message: 'Use binary search', line: node.startPosition.row + 1 });
+      suggestions.push({ type: 'binary_search', message: 'Use binary search is sorting allowed', line: node.startPosition.row + 1 });
     }
 
     const twoPointerRegex = /for\s*\(\s*int\s+\w+\s*=\s*0\s*;\s*\w+\s*<\s*\w+\s*;\s*\w+\+\+\s*\)[^}]*for\s*\(\s*int\s+\w+\s*=\s*\w+\s*\+\s*1\s*;\s*\w+\s*<\s*\w+\s*;\s*\w+\+\+\s*\)[^}]*if\s*\(\s*\w+\s*\[\s*\w+\s*\]\s*\+\s*\w+\s*\[\s*\w+\s*\]/s;
