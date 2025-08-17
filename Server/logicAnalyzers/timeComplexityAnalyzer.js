@@ -28,7 +28,6 @@ function estimateTimeComplexity(root) {
 
   let complexity = 'O(1)';
   if (hasRecursion && loopDepth === 0) complexity = 'O(2^n) or O(n!)';
-  else if (loopDepth === 1) complexity = 'O(n)';
   else if (loopDepth === 2) complexity = 'O(n^2)';
   else if (loopDepth >= 3) complexity = `O(n^${loopDepth})`;
 
