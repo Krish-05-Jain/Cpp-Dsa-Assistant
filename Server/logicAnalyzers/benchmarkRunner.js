@@ -36,7 +36,7 @@ function runBenchmark(benchmarkCode) {
         }
 
         // 2. Run the generated executable
-        const runCmd = isWindows ? `"${exeFile}"` : `./"${exeFile}"`;
+        const runCmd = `"${exeFile}"`;
         exec(runCmd, { cwd: tempDir, timeout: 10000 }, (runErr, runStdout, runStderr) => {
           // Cleanup compiled binary file
           fs.unlink(exeFile, (unlinkErr) => {

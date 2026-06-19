@@ -169,7 +169,7 @@ int main() {
             {activeTab === 'dashboard' && (
               <div className="tab-pane fade-in">
                 <h4 className="pane-title">Code Health & Complexity Metrics</h4>
-                <MetricsPanel metrics={metrics} compileResult={compileResult} />
+                <MetricsPanel metrics={metrics} compileResult={compileResult} benchmarkResults={benchmarkResults} />
                 <div className="dashboard-intro">
                   <p>Paste your C++ DSA code on the left and click <strong>Analyze</strong>. The system performs full AST parsing using tree-sitter and returns static code metrics immediately.</p>
                 </div>
