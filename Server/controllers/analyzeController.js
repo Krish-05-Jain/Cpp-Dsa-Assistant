@@ -2,7 +2,7 @@ const { parseCppCode } = require('../analyzeLogic/parse');
 
 exports.analyzeCode = (req, res) => {
   const { code } = req.body;
-  console.log("Received code:\n", code); // <-- add this
+  console.log("Received code:\n", code);
 
   if (!code || typeof code !== 'string') {
     console.log("❌ Invalid or missing code");
@@ -10,13 +10,11 @@ exports.analyzeCode = (req, res) => {
   }
 
   try {
-    const result = parseCppCode(code);
-    console.log("✅ Suggestions generated:", result); // <-- verify this
-    res.json(result);
+    const { suggestions, metrics } = parseCppCode(code);
+    console.log("✅ Suggestions generated:", suggestions);
+    res.json({ suggestions, metrics });
   } catch (err) {
     console.error('❌ Analysis failed:', err);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
-
-

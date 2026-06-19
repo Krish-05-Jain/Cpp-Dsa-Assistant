@@ -1,12 +1,14 @@
+const { getFunctionName } = require('./functionAnalyzer');
+
 function estimateTimeComplexity(root) {
   let loopDepth = 0;
   let hasRecursion = false;
   const functionNames = new Set();
 
   function walk(node, currentDepth = 0) {
-    if (node.type === 'function_declaration') {
-      const nameNode = node.childForFieldName('name');
-      if (nameNode) functionNames.add(nameNode.text);
+    if (node.type === 'function_declaration' || node.type === 'function_definition') {
+      const name = getFunctionName(node);
+      if (name && name !== '[anonymous]') functionNames.add(name);
     }
 
     if (node.type === 'call_expression') {
@@ -28,6 +30,7 @@ function estimateTimeComplexity(root) {
 
   let complexity = 'O(1)';
   if (hasRecursion && loopDepth === 0) complexity = 'O(2^n) or O(n!)';
+  else if (loopDepth === 1) complexity = 'O(n)';
   else if (loopDepth === 2) complexity = 'O(n^2)';
   else if (loopDepth >= 3) complexity = `O(n^${loopDepth})`;
 

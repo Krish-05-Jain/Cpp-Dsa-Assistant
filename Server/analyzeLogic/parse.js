@@ -32,9 +32,6 @@ const {
 } = require('../logicAnalyzers/variableUsageAnalyzer');
 const { estimateTimeComplexity } = require('../logicAnalyzers/timeComplexityAnalyzer');
 
-// Load C++ file
-const codePath = path.join(__dirname, '../test_snippets/sample.cpp');
-const code = fs.readFileSync(codePath, 'utf8');
 
 // Parse C++ code
 function parseCppCode(code) {
@@ -137,16 +134,32 @@ suggestions.push(...errors);
   console.log(`✔ Recursion Detected: ${hasRecursion}`);
   console.log(`📈 Estimated Time Complexity: ${complexity}\n`);
 
-  return suggestions;
+  return {
+    suggestions,
+    metrics: {
+      loopDepth,
+      hasRecursion,
+      complexity,
+      stlContainers: [...new Set(findSTLStructures(root).map(item => item.container))]
+    }
+  };
 }
 
-// Run it on the loaded code
-const results = parseCppCode(code);
+if (require.main === module) {
+  // Load C++ file
+  const codePath = path.join(__dirname, '../test_snippets/sample.cpp');
+  const code = fs.readFileSync(codePath, 'utf8');
 
-// Print Suggestions
-console.log('\n📌 Suggestions Summary:\n');
-results.forEach((sug, i) => {
-  console.log(`${i + 1}. Line ${sug.line}: [${sug.type}] ${sug.message}`);
-});
+  // Run it on the loaded code
+  const { suggestions, metrics } = parseCppCode(code);
+
+  // Print Suggestions
+  console.log('\n📌 Suggestions Summary:\n');
+  suggestions.forEach((sug, i) => {
+    console.log(`${i + 1}. Line ${sug.line}: [${sug.type}] ${sug.message}`);
+  });
+
+  console.log('\n🧠 Metrics Summary:\n', metrics);
+}
 
 module.exports = { parseCppCode };

@@ -1,0 +1,132 @@
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  background: rgba(31, 41, 55, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.metric-icon {
+  font-size: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(96, 165, 250, 0.1);
+  border-radius: 0.75rem;
+  color: #60a5fa;
+}
+
+.metric-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.metric-details h3 {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.metric-value {
+  margin: 0.25rem 0 0.1rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Complexity specifics */
+.complexity-card .metric-value {
+  background: linear-gradient(to right, #60a5fa, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Fira Code', monospace;
+  font-weight: 800;
+}
+
+/* Compiler check specifics */
+.compile-pass {
+  border-left: 4px solid #10b981;
+}
+.compile-pass .metric-icon {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.compile-fail {
+  border-left: 4px solid #ef4444;
+}
+.compile-fail .metric-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* STL pill styles */
+.stl-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.3rem 0;
+}
+
+.stl-pill {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.stl-pill-empty {
+  font-size: 0.8rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.metrics-panel-empty {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(31, 41, 55, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+@media (max-width: 640px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

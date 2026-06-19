@@ -1,102 +1,82 @@
-/* Code Editor Container */
 .code-editor {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; /* Increased gap for better spacing */
-    padding: 1.5rem; /* Padding inside the code editor block */
-    background-color: #2d3748; /* Dark background, consistent with home-container */
-    border-radius: 1.5rem; /* Rounded corners for the entire editor block */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow for depth */
-    box-sizing: border-box; /* Include padding in width */
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(21, 29, 48, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+    height: 100%;
 }
 
-/* Textarea for Code Input */
 .code-editor textarea {
     width: 100%;
-    min-height: 300px; /* Slightly increased min-height for more code visibility */
-    font-family: 'Fira Code', monospace; /* Fira Code is excellent for coding */
-    font-size: 16px; /* Slightly larger font size */
-    padding: 1.2rem; /* Increased padding inside textarea */
-    border: 1px solid #4a5568; /* Subtle dark border */
-    border-radius: 0.75rem; /* Rounded corners for the textarea */
-    resize: vertical; /* Allow vertical resizing */
-    background-color: #1f2937; /* Dark background for the editor area */
-    color: #e2e8f0; /* Light text color for code */
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
-    outline: none; /* Remove default outline */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition on focus */
+    flex: 1;
+    min-height: 480px;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-size: 15px;
+    padding: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+    resize: vertical;
+    background-color: #0d1321;
+    color: #e2e8f0;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    line-height: 1.6;
+    transition: all 0.2s ease;
 }
 
 .code-editor textarea:focus {
-    border-color: #60a5fa; /* Accent color border on focus */
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(96, 165, 250, 0.3); /* Glow effect on focus */
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.6), 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
-/* Analyze Button */
 .code-editor button {
-    align-self: flex-end; /* Align button to the right */
-    padding: 0.8rem 2rem; /* Adjusted padding */
-    background-color: #3b82f6; /* Blue button, consistent with Home component */
-    color: white;
+    align-self: flex-end;
+    padding: 0.75rem 2.25rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
     border: none;
-    border-radius: 0.75rem; /* Rounded button corners */
-    font-weight: 600;
+    border-radius: 0.5rem;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+    font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .code-editor button:hover {
-    background-color: #2563eb; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
 }
 
 .code-editor button:active {
-    transform: translateY(0); /* Press effect */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .code-editor {
         padding: 1rem;
-        gap: 1rem;
         border-radius: 1rem;
     }
 
     .code-editor textarea {
-        min-height: 200px;
+        min-height: 320px;
         font-size: 14px;
         padding: 1rem;
-        border-radius: 0.5rem;
     }
 
     .code-editor button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
-        border-radius: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .code-editor {
-        padding: 0.8rem;
-        gap: 0.8rem;
-        border-radius: 0.75rem;
-    }
-
-    .code-editor textarea {
-        min-height: 150px;
-        font-size: 13px;
-        padding: 0.8rem;
-        border-radius: 0.5rem;
-    }
-
-    .code-editor button {
-        padding: 0.6rem 1.2rem;
+        padding: 0.65rem 1.75rem;
         font-size: 0.9rem;
-        border-radius: 0.5rem;
     }
 }
