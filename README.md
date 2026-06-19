@@ -27,12 +27,14 @@ When testing with representative DSA datasets, the transition from naive to opti
 
 | Algorithm / Pattern | Naive Complexity | Optimized Complexity | Test Constraints / Dataset | Typical Execution Speedup |
 | :--- | :--- | :--- | :--- | :--- |
-| **Prefix Sums** | $O(N \cdot Q)$ | $O(N + Q)$ | $N = 40,000$ array, $Q = 20,000$ queries | **$200\times$ to $500\times$ faster** |
-| **Two-Pointer Sum** | $O(N^2)$ | $O(N)$ | $N = 50,000$ sorted array, worst-case search | **$1000\times$ to $3000\times$ faster** |
-| **Sliding Window** | $O(N \cdot K)$ | $O(N)$ | $N = 100,000$ array, window $K = 500$ | **$300\times$ to $600\times$ faster** |
-| **Hashing (Set)** | $O(N^2)$ | $O(N)$ | $N = 30,000$ elements, duplicate check | **$800\times$ to $1500\times$ faster** |
-| **Binary Search** | $O(N \cdot Q)$ | $O(Q \log N)$ | $N = 100,000$ sorted array, $Q = 5,000$ searches | **$1500\times$ to $4000\times$ faster** |
-| **Optimal Sort** | $O(N^2)$ | $O(N \log N)$ | $N = 10,000$ random elements (Bubble vs IntroSort) | **$100\times$ to $300\times$ faster** |
+| **Prefix Sums** | $O(N \cdot Q)$ | $O(N + Q)$ | $N = 40,000$ array, $Q = 20,000$ queries | **$10\times$ to $50\times$ faster** |
+| **Two-Pointer Sum** | $O(N^2)$ | $O(N)$ | $N = 50,000$ sorted array, worst-case search | **$100\times$ to $500\times$ faster** |
+| **Sliding Window** | $O(N \cdot K)$ | $O(N)$ | $N = 100,000$ array, window $K = 500$ | **$20\times$ to $100\times$ faster** |
+| **Hashing (Set)** | $O(N^2)$ | $O(N)$ | $N = 30,000$ elements, duplicate check | **$50\times$ to $200\times$ faster** |
+| **Binary Search** | $O(N \cdot Q)$ | $O(Q \log N)$ | $N = 100,000$ sorted array, $Q = 5,000$ searches | **$100\times$ to $500\times$ faster** |
+| **Optimal Sort** | $O(N^2)$ | $O(N \log N)$ | $N = 10,000$ random elements (Bubble vs IntroSort) | **$20\times$ to $100\times$ faster** |
+
+*Note: Execution speedups are realistic, defendable estimates under optimized compilation (`g++ -O3`). Actual performance margins will vary based on hardware specs, memory caching, and compiler vectorization capabilities.*
 
 ### ⚡ Engine Feedback Latency
 The application balances local static analysis and compiler integration with advanced LLM intelligence to deliver instantaneous results:
