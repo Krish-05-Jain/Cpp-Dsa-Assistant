@@ -5,6 +5,7 @@ const { parseCppCode } = require('../analyzeLogic/parse');
 const { checkSyntax } = require('../logicAnalyzers/compilerCheck');
 const { generateBenchmarkCode } = require('../logicAnalyzers/benchmarkGenerator');
 const { getGeminiSuggestion } = require('../gemini/geminiClient');
+const { runBenchmark } = require('../logicAnalyzers/benchmarkRunner');
 
 router.post('/analyze', async (req, res) => {
   const { code } = req.body;
@@ -23,7 +24,13 @@ router.post('/analyze', async (req, res) => {
     // 3. Benchmark C++ script generation
     const benchmarkCode = generateBenchmarkCode(suggestions, code);
 
-    // 4. Gemini AI Suggestion if API Key exists
+    // 4. Run the benchmark if compilation succeeded
+    let benchmarkResults = null;
+    if (compileResult.success && !compileResult.compilerMissing) {
+      benchmarkResults = await runBenchmark(benchmarkCode);
+    }
+
+    // 5. Gemini AI Suggestion if API Key exists
     let aiSuggestion = null;
     if (process.env.GEMINI_API_KEY) {
       const aiResult = await getGeminiSuggestion(code);
@@ -42,7 +49,8 @@ router.post('/analyze', async (req, res) => {
       metrics,
       compileResult,
       benchmarkCode,
-      aiSuggestion
+      aiSuggestion,
+      benchmarkResults
     });
   } catch (err) {
     console.error('Analyze error:', err.message);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './BenchmarkPanel.css';
 
-export default function BenchmarkPanel({ benchmarkCode }) {
+export default function BenchmarkPanel({ benchmarkCode, benchmarkResults }) {
   const [copied, setCopied] = useState(false);
 
   if (!benchmarkCode) {
@@ -28,6 +28,54 @@ export default function BenchmarkPanel({ benchmarkCode }) {
 
   return (
     <div className="benchmark-panel">
+      {/* Live Backend Benchmark Results */}
+      {benchmarkResults && benchmarkResults.success ? (
+        <div className="live-results-card">
+          <div className="results-badge">⚡ Live Backend Execution Run</div>
+          <h4 className="results-title">{benchmarkResults.benchmarkName}</h4>
+          
+          <div className="results-metrics-grid">
+            <div className="results-metric-card brute-card">
+              <span className="metric-icon">🐌</span>
+              <div className="metric-info">
+                <span className="metric-label">Naive Time</span>
+                <span className="metric-val">{benchmarkResults.bruteTime}</span>
+              </div>
+            </div>
+            
+            <div className="results-metric-card optimized-card">
+              <span className="metric-icon">⚡</span>
+              <div className="metric-info">
+                <span className="metric-label">Optimized Time</span>
+                <span className="metric-val">{benchmarkResults.optimizedTime}</span>
+              </div>
+            </div>
+            
+            <div className="results-metric-card speedup-card">
+              <span className="metric-icon">🚀</span>
+              <div className="metric-info">
+                <span className="metric-label">Measured Speedup</span>
+                <span className="metric-val speedup-highlight">{benchmarkResults.speedup}</span>
+              </div>
+            </div>
+          </div>
+          
+          <details className="raw-output-details">
+            <summary>View raw execution terminal output</summary>
+            <pre className="raw-output-console"><code>{benchmarkResults.rawOutput}</code></pre>
+          </details>
+        </div>
+      ) : benchmarkResults && benchmarkResults.error ? (
+        <div className="live-results-card-error">
+          <p>⚠️ <strong>Live Execution Failed:</strong> {benchmarkResults.error}</p>
+          <p className="fallback-hint">You can still download and run the script below on your system to measure the performance differences.</p>
+        </div>
+      ) : (
+        <div className="live-results-card-missing">
+          <p>💡 <em>Note: Live performance execution requires a local <code>g++</code> compiler on the server. You can download the benchmark script below and run it locally to compare speedups.</em></p>
+        </div>
+      )}
+
       <div className="benchmark-header">
         <div className="benchmark-title-wrap">
           <span className="fire-icon">🔥</span>

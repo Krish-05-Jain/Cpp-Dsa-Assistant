@@ -33,6 +33,7 @@ int main() {
   const [compileResult, setCompileResult] = useState(null);
   const [benchmarkCode, setBenchmarkCode] = useState('');
   const [aiSuggestion, setAiSuggestion] = useState('');
+  const [benchmarkResults, setBenchmarkResults] = useState(null);
   
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -60,6 +61,7 @@ int main() {
       setCompileResult(data.compileResult || null);
       setBenchmarkCode(data.benchmarkCode || '');
       setAiSuggestion(data.aiSuggestion || '');
+      setBenchmarkResults(data.benchmarkResults || null);
 
       // Set active tab based on status:
       // If compiler failed, go to compiler logs. Otherwise go to dashboard
@@ -202,7 +204,7 @@ int main() {
             {activeTab === 'benchmark' && (
               <div className="tab-pane fade-in">
                 <h4 className="pane-title">Standalone Benchmarking Script</h4>
-                <BenchmarkPanel benchmarkCode={benchmarkCode} />
+                <BenchmarkPanel benchmarkCode={benchmarkCode} benchmarkResults={benchmarkResults} />
               </div>
             )}
 
