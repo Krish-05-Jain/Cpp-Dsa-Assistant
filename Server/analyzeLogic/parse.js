@@ -55,44 +55,7 @@ suggestions.push(...errors);
     return suggestions; // Stop further analysis on syntax errors
   }
 
-  // --- Loops ---
-  suggestions.push(...findForLoops(root).map(node => ({
-    line: node.startPosition.row + 1,
-    type: 'for_loop',
-    message: 'For loop detected'
-  })));
 
-  suggestions.push(...findWhileLoops(root).map(node => ({
-    line: node.startPosition.row + 1,
-    type: 'while_loop',
-    message: 'While loop detected'
-  })));
-
-  suggestions.push(...findDoWhileLoops(root).map(node => ({
-    line: node.startPosition.row + 1,
-    type: 'do_while_loop',
-    message: 'Do-While loop detected'
-  })));
-
-  suggestions.push(...findNestedLoops(root).map(item => ({
-    line: item.line,
-    type: 'nested_loop',
-    message: `Nested loop found inside ${item.outerType}`
-  })));
-
-  // --- Conditionals ---
-  suggestions.push(...findIfStatement(root).map(node => ({
-    line: node.startPosition.row + 1,
-    type: 'if_statement',
-    message: 'If statement detected'
-  })));
-
-  // --- STL Containers ---
-  suggestions.push(...findSTLStructures(root).map(item => ({
-    line: item.line,
-    type: item.container,
-    message: 'STL container usage detected'
-  })));
 
   // --- Optimization Hints ---
   suggestions.push(...suggestPrefixSumOrHashing(root, code,[]));
